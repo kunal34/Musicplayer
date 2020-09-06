@@ -9,6 +9,7 @@
         integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -20,18 +21,7 @@
                 <img src="images/Kb2.jpg" alt="">
             </div>
             <audio src="music/Kb2.mp3"></audio>
-            <!-- <h2 id="title">Banjaara</h2>
-            <h3 id="artist">Mohammed Irfaan</h3>
-            <div class="img_container">
-                <img src="img/2.jpg" alt="">
-            </div>
-            <audio src="music/2.mp3"></audio>
-            <h2 id="title">Photograph</h2>
-            <h3 id="artist">Ed sheeran</h3>
-            <div class="img_container">
-                <img src="img/3.jpg" alt="">
-            </div>
-            <audio src="music/3.mp3"></audio> -->
+
 
             <div class="music_controls">
                 <i class="fas fa-backward" id="prev" title="Previous"></i>
@@ -40,41 +30,47 @@
             </div>
         </div>
     </div>
+    <footer class="footer_container">
+
+        <p> © 2020-2021 Biswas, Inc. · </p>
+    </footer>
+
+
     <script>
         const music = document.querySelector("audio");
         const img = document.querySelector("img");
         const play = document.getElementById("play");
         const artist = document.getElementById("artist");
-        const title = document.getElementById("title");
+        const title = document.getElementById("title"); // a single space can cause to stop your code
         const prev = document.getElementById("prev");
         const next = document.getElementById("next");
 
         const songs = [
-        {
-            name: "Kb2",
-            title: "Banjaara",
-            artist: "Mohammed Irfaan",
-        },
-        {
-            name:"Kb5",
-            title:"Savage Love",
-            artist:"Jason Derulo",
-        },
-        {
-            name:"Kb4",
-            title:"Deathbed",
-            artist:"Powfu",
-        },
             {
-            name: "Kb1",
-            title: "Aadat",
-            artist: "Atif aslam",
-        },
-        {
-            name:"Kb3",
-            title:"Photograph",
-            artist:"Ed sheeran",
-        },
+                name: "Kb2",
+                title: "Banjaara",
+                artist: "Mohammed Irfaan",
+            },
+            {
+                name: "Kb5",
+                title: "Savage Love",
+                artist: "Jason Derulo",
+            },
+            {
+                name: "Kb4",
+                title: "Deathbed",
+                artist: "Powfu",
+            },
+            {
+                name: "Kb1",
+                title: "Aadat",
+                artist: "Atif aslam",
+            },
+            {
+                name: "Kb3",
+                title: "Photograph",
+                artist: "Ed sheeran",
+            },
         ];
 
         let isPlaying = false;
@@ -108,20 +104,22 @@
             music.src = "music/" + songs.name + ".mp3";
             img.src = "images/" + songs.name + ".jpg";
         };
-         songIndex=0;
+        songIndex = 0;
         // loadSong(songs[2]);
-       const nextsong = () =>{
-           songIndex = (songIndex + 1) % songs.length;
-        loadSong(songs[songIndex]);
-        playMusic();
-       }
-       const prevsong = () =>{
-           songIndex = (songIndex - 1 +songs.length) % songs.length;
-        loadSong(songs[songIndex]);
-        playMusic();
-       }
-        next.addEventListener('click',nextsong);
-        prev.addEventListener('click',prevsong);
+        const nextsong = () => {
+            songIndex = (songIndex + 1) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        }
+        const prevsong = () => {
+            songIndex = (songIndex - 1 + songs.length) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        }
+        next.addEventListener('click', nextsong);
+        prev.addEventListener('click', prevsong);
+
+
     </script>
 </body>
 
